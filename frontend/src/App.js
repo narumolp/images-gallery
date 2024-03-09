@@ -3,13 +3,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Search from './components/Search';
 
+// appId 576761
+// access R5Rqx4Tj-8Aa_aJOxbIPHhkJyr52bdJAVSN3N4kemdY
+// secret JzZEDL8-nQeDP0uuIrqBsJ2xaVC8FGv4m35jfAWtyWI
+
+const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
+
 function App() {
   const [word, setWord] = useState('');
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     console.log(word);
+    fetch(
+      `https://api.unsplash.com/photos/random/?query=${word}&client_id=${UNSPLASH_KEY}`
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
   };
+
   return (
     <div className='App'>
       <Header title='Images Gallery' />
