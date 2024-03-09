@@ -8,9 +8,9 @@ const navBarStyle = {
 const Header = (props) => {
   const { title } = props;
   return (
-    <Navbar style={navBarStyle} data-bs-theme='light'>
+    <Navbar style={navBarStyle} data-bs-theme="light">
       <Container>
-        <Navbar.Brand href='/'>{title}</Navbar.Brand>
+        <Navbar.Brand href="/">{title}</Navbar.Brand>
       </Container>
     </Navbar>
   );
