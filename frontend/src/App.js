@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Search from './components/Search';
 import ImageCard from './components/Card';
+import Welcome from './components/Welcome';
 import { Container, Row, Col } from 'react-bootstrap';
 
 // appId 576761
@@ -36,15 +37,19 @@ function App() {
     <div>
       <Header title="Images Gallery" />
       <Search word={word} setWord={setWord} handleSubmit={handleSearchSubmit} />
-      <Container className="mt-4">
-        <Row xs={1} md={2} lg={3}>
-          {images.map((image, i) => (
-            <Col className="pb-3" key={i}>
-              <ImageCard image={image} deleteImage={handleDeleteImage} />
-            </Col>
-          ))}
-        </Row>
-      </Container>
+      {images.length > 0 ? (
+        <Container className="mt-4">
+          <Row xs={1} md={2} lg={3}>
+            {images.map((image, i) => (
+              <Col className="pb-3" key={i}>
+                <ImageCard image={image} deleteImage={handleDeleteImage} />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      ) : (
+        <Welcome />
+      )}
     </div>
   );
 }
