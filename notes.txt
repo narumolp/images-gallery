@@ -1,0 +1,3 @@
+activate vertual env: pipenv shell
+
+env FLASK_APP=main.py flask run
