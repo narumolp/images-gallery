@@ -5,24 +5,15 @@ import Search from './components/Search';
 import ImageCard from './components/Card';
 import Welcome from './components/Welcome';
 import { Container, Row, Col } from 'react-bootstrap';
-
-// appId 576761
-// access R5Rqx4Tj-8Aa_aJOxbIPHhkJyr52bdJAVSN3N4kemdY
-// secret JzZEDL8-nQeDP0uuIrqBsJ2xaVC8FGv4m35jfAWtyWI
-
-const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
+const API_URL = process.env.REACT_APP_API_URL || 'http://127.0.0.1:5050';
 
 function App() {
   const [word, setWord] = useState('');
   const [images, setImages] = useState([]);
 
-  console.log(images);
-
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    fetch(
-      `https://api.unsplash.com/photos/random/?query=${word}&client_id=${UNSPLASH_KEY}`,
-    )
+    fetch(`${API_URL}/new-image?query=${word}`)
       .then((res) => res.json())
       .then((data) => setImages([{ ...data, title: word }, ...images]))
       .catch((error) => console.log(error));
