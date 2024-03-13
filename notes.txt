@@ -3,3 +3,24 @@ pipy.org
 activate vertual env: pipenv shell
 
 env FLASK_APP=main.py flask run
+
+- make Dockerfile in the api dir.
+- to build
+docker build . 
+
+- build with specify tag name
+docker build . -t images-gallery-api
+
+- list available images name 
+docker images
+
+- run specific docker
+(mac external port:flask port run on Docker)
+docker run -p 5051:5050 images-gallery-api
+docker run -p 3000:3000 images-gallery-frontend
+
+- list running docker images
+docker ps
+
+- going into the running docker -it(interactive terminal)
+docker exec -it hardcore_khayyam bash
