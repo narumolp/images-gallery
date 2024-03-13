@@ -23,4 +23,10 @@ docker run -p 3000:3000 images-gallery-frontend
 docker ps
 
 - going into the running docker -it(interactive terminal)
+(if 'bash' is not available use 'sh')
 docker exec -it hardcore_khayyam bash
+
+    - to see current running process 
+      ps
+- to get out from sh in docker 
+  exit
