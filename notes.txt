@@ -30,3 +30,6 @@ docker exec -it hardcore_khayyam bash
       ps
 - to get out from sh in docker 
   exit
+
+- rebuild a docker 'api' container after adding pymongo
+docker-compose up --build -d api
