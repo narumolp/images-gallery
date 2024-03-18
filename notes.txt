@@ -33,3 +33,14 @@ docker exec -it hardcore_khayyam bash
 
 - rebuild a docker 'api' container after adding pymongo
 docker-compose up --build -d api
+
+- rebuild everything (list service name @ the end for specific service)
+docker-compose up -d --build
+
+- rebuild without cache
+docker-compose build --no-cache frontend
+
+- if some node module can not resolve in docker, might be bug 
+- recreate all containers in the project (solve axios issue)
+docker-compose down
+docker-compose up -d --build

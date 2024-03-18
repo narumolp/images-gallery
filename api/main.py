@@ -55,4 +55,3 @@ def images():
 if __name__ == '__main__':
     print('running debug true')
     app.run(host='0.0.0.0', port=5050)
-    # app.run(debug=True)
